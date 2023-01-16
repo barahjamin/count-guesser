@@ -13,4 +13,9 @@ export const exampleRouter = createTRPCRouter({
   getAll: publicProcedure.query(({ ctx }) => {
     return ctx.prisma.example.findMany();
   }),
+  getAllImages: publicProcedure.query(({ ctx }) => {
+    const temp = ctx.prisma.dailyGame.findMany();
+    console.log(temp.then((data) => console.log(data)));
+    return temp;
+  }),
 });
