@@ -7,7 +7,11 @@ import { api } from "../utils/api";
 const Home: NextPage = () => {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
   const allImages = api.example.getAllImages.useQuery();
+  const dailyImage = api.example.getDailyImage.useQuery({
+    dayOfInterest: "2023-01-15",
+  });
 
+  console.log(dailyImage);
   console.log(allImages);
 
   return (
